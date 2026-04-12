@@ -26,3 +26,4 @@ fetch("https://api.siposm.hu/getDevelopers") // then: olyan mint az await, tehat
 
         button.disabled = false; // ha betoltodott az api hivas akkor lesz elerheto a gomb
     });
+
