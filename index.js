@@ -1,8 +1,10 @@
 const tbody = document.querySelector("tbody")
+let developers = undefined
 
 fetch("https://api.siposm.hu/getDevelopers")
 .then(r => r.json())
-.then(developers => {
+.then(data => {
+    developers = data
     for (const developer of developers) {
         const tr = document.createElement("tr")
 
@@ -24,11 +26,9 @@ fetch("https://api.siposm.hu/getDevelopers")
         tr.append(name_td, email_td, age_td, salary_td)
         tbody.appendChild(tr)
     }
-    const lowest = lowestEarning(developers)
-    console.log(lowest)
 })
 
-function lowestEarning(developers){
+function lowestEarning(){
     if(!developers?.length){ // ha length pl 3 akkor az true, ezert tagadjuk
         return null
     }
@@ -43,3 +43,11 @@ function lowestEarning(developers){
     }
     return min
 }
+
+function lowestEarningClick(e){
+    const lowestEarningDev = lowestEarning()
+    let x = e.target
+    e.target.innerHTML = lowestEarningDev.name;
+}
+
+// todo: addeventlistener
