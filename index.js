@@ -50,4 +50,8 @@ function lowestEarningClick(e){
     e.target.innerHTML = lowestEarningDev.name;
 }
 
-// todo: addeventlistener
+const name_id = document.querySelector("#name")
+
+window.addEventListener("keydown", (e) => {
+    alert(`Don't press "${e.key}"!`)
+})
